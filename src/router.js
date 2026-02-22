@@ -3,13 +3,15 @@ import renderOnboarding from './screens/onboarding.js'
 import renderQuiz from './screens/quiz.js'
 import renderAnalysis from './screens/analysis.js'
 import renderRewards from './screens/rewards.js'
+import renderTerms from './screens/terms.js'
 
 const routes = {
     '/': renderLanding,
     '/onboarding': renderOnboarding,
     '/quiz': renderQuiz,
     '/analysis': renderAnalysis,
-    '/rewards': renderRewards
+    '/rewards': renderRewards,
+    '/terms': renderTerms
 }
 
 export function navigate(path, data = null) {
