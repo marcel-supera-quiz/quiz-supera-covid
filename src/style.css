@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-subtle-pulse:hover {
+    animation: subtlePulse 2s infinite;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom styles from prototypes */
+.floating-input:placeholder-shown+label {
+  transform: translateY(0) scale(1);
+  color: #9CA3AF;
+}
+
+.floating-input:not(:placeholder-shown)+label,
+.floating-input:focus+label {
+  transform: translateY(-2.5rem) scale(0.85);
+  color: #e9590c;
+}
+
+/* Handle Chrome/Safari autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #591C0B !important;
+}
+
+.bg-split {
+  background: linear-gradient(to bottom, #e9590c 35%, #FFFBF7 35%);
+}
+
+@media (min-width: 1024px) {
+  .bg-split {
+    background: linear-gradient(to bottom, #e9590c 30%, #FFFBF7 30%);
+  }
+}
+
+/* Range slider custom styles */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #e9590c;
+  cursor: pointer;
+  margin-top: -10px;
+  box-shadow: 0 0 0 4px rgba(233, 89, 12, 0.2);
+  transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #e8d7ce;
+  border-radius: 2px;
+}
+
+/* Radio buttons & checkboxes */
+.checkbox-pill:checked+div {
+  background-color: #e9590c;
+  color: white;
+  border-color: #e9590c;
+}
+
+.radio-circle:checked+div {
+  background-color: #e9590c;
+  color: white;
+  border-color: #e9590c;
+  transform: scale(1.05);
+}
+
+/* Rewards selection styling */
+.reward-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reward-card.selected {
+  border-color: #EA5B0C;
+  border-width: 4px;
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.reward-card:not(.selected) {
+  border-color: transparent;
+  border-width: 4px;
+}
+
+.cards-group:hover .reward-card:not(:hover):not(.selected) {
+  opacity: 0.6;
+}
+
+.has-selection .reward-card:not(.selected) {
+  opacity: 0.5;
+  filter: grayscale(0.2);
+}
