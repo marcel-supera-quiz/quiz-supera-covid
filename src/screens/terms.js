@@ -1,3 +1,4 @@
+import { navigate } from '../router.js'
 import headerComponent from '../components/header.js'
 
 export default function renderTerms() {
@@ -62,7 +63,7 @@ export default function renderTerms() {
 
   setTimeout(() => {
     document.getElementById('back-btn').addEventListener('click', () => {
-      window.history.back()
+      navigate('/')
     })
   }, 0)
 
