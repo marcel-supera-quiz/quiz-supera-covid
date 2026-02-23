@@ -17,10 +17,10 @@ export default function renderTerms() {
         <p><strong>Última atualização: Fevereiro de 2026</strong></p>
         
         <h2 class="text-xl font-bold text-secondary mt-6">1. Aceitação dos Termos</h2>
-        <p>Ao utilizar o Supera Vitality, você concorda com a coleta e uso das suas informações pessoais e resultados cognitivos conforme descrito nesta política. Nossa plataforma preza pela segurança dos seus dados em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+        <p>Ao utilizar o Quiz do Método Supera, você concorda com a coleta e uso das suas informações pessoais e resultados cognitivos conforme descrito nesta política. Nossa plataforma preza pela segurança dos seus dados em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
 
         <h2 class="text-xl font-bold text-secondary mt-6">2. Coleta de Dados</h2>
-        <p>Coletamos as seguintes informações para viabilizar nossa avaliação e a emissão do seu certificado ou agendamento de consultas:</p>
+        <p>Coletamos as seguintes informações para viabilizar nossa avaliação e a emissão do seu certificado ou agendamento de atendimento na unidade do Método Supera mais próxima de você: </p>
         <ul class="list-disc pl-5">
             <li><strong>Dados Pessoais Iniciais:</strong> Nome completo, Idade, Cidade e Estado.</li>
             <li><strong>Contato:</strong> Número de WhatsApp.</li>
@@ -31,7 +31,7 @@ export default function renderTerms() {
         <p>Utilizamos os dados coletados exclusivamente para:</p>
         <ul class="list-disc pl-5">
             <li>Gerar a sua análise de impacto cognitivo e seu certificado digital de participação de maneira personalizada.</li>
-            <li>Permitir o contato da equipe Supera Ginástica para o Cérebro com o objetivo de agendar uma avaliação gratuita presencial, se você tiver optado.</li>
+            <li>Permitir o contato da equipe do Método Supera com o objetivo de agendar um atendimento com um especialista para uma avaliação gratuita presencial, se você tiver optado por isso.</li>
             <li>Melhorar continuamente a eficácia da nossa ferramenta.</li>
         </ul>
 
@@ -47,7 +47,7 @@ export default function renderTerms() {
             <li>Revogar seu consentimento a qualquer momento de forma expressa.</li>
         </ul>
         
-        <p class="mt-8 font-bold">Contato do Encarregado (DPO):<br> <a href="mailto:dpo@supera-vitality.com.br" class="text-primary underline">dpo@supera-vitality.com.br</a></p>
+        <p class="mt-8 font-bold">Contato do Encarregado (DPO):<br> <a href="mailto: marcel.superanovaodessa@metodosupera.com.br" class="text-primary underline">dpo@supera-vitality.com.br</a></p>
       </div>
       
       <div class="mt-10 pt-6 border-t border-gray-100 flex justify-center">
@@ -62,7 +62,7 @@ export default function renderTerms() {
 
   setTimeout(() => {
     document.getElementById('back-btn').addEventListener('click', () => {
-        window.history.back()
+      window.history.back()
     })
   }, 0)
 
