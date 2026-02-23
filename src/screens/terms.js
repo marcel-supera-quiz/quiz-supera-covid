@@ -47,7 +47,7 @@ export default function renderTerms() {
             <li>Revogar seu consentimento a qualquer momento de forma expressa.</li>
         </ul>
         
-        <p class="mt-8 font-bold">Contato do Encarregado (DPO):<br> <a href="mailto: marcel.superanovaodessa@metodosupera.com.br" class="text-primary underline">dpo@supera-vitality.com.br</a></p>
+        <p class="mt-8 font-bold">Contato do Encarregado (DPO):<br> <a href="mailto: marcel.superanovaodessa@metodosupera.com.br" class="text-primary underline">marcel.superanovaodessa@metodosupera.com.br</a></p>
       </div>
       
       <div class="mt-10 pt-6 border-t border-gray-100 flex justify-center">
