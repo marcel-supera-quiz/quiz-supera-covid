@@ -1,5 +1,6 @@
 import html2canvas from 'html2canvas';
 import QRCode from 'qrcode';
+import logoImg from '../assets/logo.png';
 
 export async function generateCertificate(resultData, participantName) {
     // Create a hidden DOM element with 1080x1920 resolution for WhatsApp Status
@@ -21,8 +22,8 @@ export async function generateCertificate(resultData, participantName) {
     container.innerHTML = `
         <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; padding: 100px; box-sizing:border-box; font-family:'Helvetica Neue', sans-serif;">
            <!-- Header -->
-           <div style="font-size: 60px; color: #EA5B0C; font-weight: bold; margin-bottom: 50px;">
-               Supera Vitality
+           <div style="margin-bottom: 50px;">
+               <img src="${logoImg}" style="width: 600px; height: auto; object-contain;" />
            </div>
            
            <!-- Title -->
@@ -59,8 +60,7 @@ export async function generateCertificate(resultData, participantName) {
 
        <!-- Footer -->
        <div style="margin-top: auto; font-size: 40px; color: #8C4F3E; text-align: center;">
-           Faça sua avaliação também.<br/>
-           <span style="font-weight: bold; color: #EA5B0C;">supera-vitality.com.br</span>
+           Faça sua avaliação também.
        </div>
     </div>
   `
