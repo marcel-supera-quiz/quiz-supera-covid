@@ -1,20 +1,16 @@
 import { navigate } from '../router.js'
+import heroImg from '../assets/hero-image.webp.png'
+import logoImg from '../assets/logo.png'
 
 export default function renderLanding() {
-    const container = document.createElement('div')
-    container.className = 'w-full min-h-screen flex flex-col'
+  const container = document.createElement('div')
+  container.className = 'w-full min-h-screen flex flex-col'
 
-    container.innerHTML = `
+  container.innerHTML = `
     <!-- Navigation -->
     <header class="relative z-10 w-full px-6 py-6 md:px-12 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="text-primary">
-          <span class="material-symbols-outlined text-4xl">neurology</span>
-        </div>
-        <div class="flex flex-col">
-          <span class="font-display font-bold text-2xl leading-none tracking-tight text-secondary">Supera</span>
-          <span class="font-body text-xs font-bold uppercase tracking-widest text-primary">Vitality</span>
-        </div>
+        <img src="${logoImg}" alt="Logo Supera Vitality" class="h-10 md:h-12 w-auto object-contain">
       </div>
     </header>
 
@@ -88,10 +84,7 @@ export default function renderLanding() {
           
           <div class="relative z-10 w-full max-w-lg aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-12px_rgba(89,28,11,0.15)] bg-surface transform rotate-1 hover:rotate-0 transition-transform duration-700 ease-out group">
             <div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent mix-blend-multiply z-10"></div>
-            <!-- Placerholder for hero-elderly.webp -->
-            <div class="w-full h-full bg-orange-100 flex items-center justify-center text-primary/50 text-sm font-bold">
-              [hero-elderly.webp] placeholder
-            </div>
+            <img src="${heroImg}" alt="Pessoa idosa ativa e saudável" class="w-full h-full object-cover">
 
             <div class="absolute bottom-8 left-8 right-8 z-20 bg-surface/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50 flex items-center gap-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
               <div class="bg-green-100 text-green-700 p-2 rounded-full">
@@ -118,11 +111,11 @@ export default function renderLanding() {
     </footer>
   `
 
-    setTimeout(() => {
-        document.getElementById('start-btn').addEventListener('click', () => {
-            navigate('/onboarding')
-        })
-    }, 0)
+  setTimeout(() => {
+    document.getElementById('start-btn').addEventListener('click', () => {
+      navigate('/onboarding')
+    })
+  }, 0)
 
-    return container
+  return container
 }

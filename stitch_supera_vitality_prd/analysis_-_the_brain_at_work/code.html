@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supera Vitality - Analisando Resultados</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@700&amp;family=Manrope:wght@400;500;700;800&amp;family=Mulish:wght@500;700&amp;family=Recoleta+Alt:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#EA5B0C", // Supera Orange
+                        "primary-hover": "#F4965B", // Accent Orange
+                        "secondary": "#591C0B", // Deep Terracotta
+                        "secondary-text": "#8C4F3E", // Muted Brown
+                        "background-light": "#FFFBF7", // Warm Paper
+                        "surface": "#FFFFFF",
+                        "background-dark": "#221610", // Fallback dark (not used per request but good practice)
+                    },
+                    fontFamily: {
+                        "display": ["Recoleta Alt", "Manrope", "serif"],
+                        "body": ["Mulish", "sans-serif"],
+                        "mono": ["Chivo Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem", 
+                        "card": "16px",
+                        "button": "50px", // Pill shape
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fill-up': 'fillUp 8s ease-in-out forwards',
+                        'fade-in-out': 'fadeInOut 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fillUp: {
+                            '0%': { height: '0%' },
+                            '100%': { height: '100%' },
+                        },
+                        fadeInOut: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '1' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Font Imports fallback if Google Fonts fail specifically for Recoleta which might be custom */
+        @font-face {
+            font-family: 'Recoleta Alt';
+            src: local('Recoleta Alt'), url('https://fonts.cdnfonts.com/s/73616/RecoletaAlt-Bold.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        /* Subtle Noise Texture */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Brain Shape Clip Path for the fluid fill simulation */
+        .brain-mask {
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 4.07C16.36 4.54 19 7.37 19.8 10.93L19.93 11H18C17.45 11 17 10.55 17 10V9C17 8.45 16.55 8 16 8C15.45 8 15 8.45 15 9V11H13V4.07ZM11 4.07V11H9V9C9 8.45 8.55 8 8 8C7.45 8 7 8.45 7 9V10C7 10.55 6.55 11 6 11H4.07C4.21 10.3 4.46 9.64 4.8 9.03C5.55 7.69 6.69 6.55 8.03 5.8C9.65 4.9 11.51 4.4 13.43 4.41L13 4.07H11ZM4.07 13H6C6.55 13 7 13.45 7 14V15C7 15.55 7.45 16 8 16C8.55 16 9 15.55 9 15V13H11V19.93C7.64 19.46 5 16.63 4.2 13.07L4.07 13ZM13 19.93V13H15V15C15 15.55 15.45 16 16 16C16.55 16 17 15.55 17 15V14C17 13.45 17.45 13 18 13H19.93C19.79 20.6 19.54 21.26 19.2 21.87C18.45 23.21 17.31 24.35 15.97 25.1C14.35 26 12.49 26.5 10.57 26.49L11 26.83H13Z" /></svg>'); 
+            /* Simplified mask for demonstration. In production, a detailed SVG path of a brain would be used. Using a simple shape here to simulate the effect without external assets. */
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.5,2C11.33,2 11.17,2 11,2.03V11.5H5V12.5H11V21.97C11.17,22 11.33,22 11.5,22C11.67,22 11.83,22 12,21.97V12.5H18V11.5H12V2.03C11.83,2 11.67,2 11.5,2M15.5,3.5C14.9,3.5 14.36,3.79 14,4.25C13.64,3.79 13.1,3.5 12.5,3.5C11.39,3.5 10.5,4.39 10.5,5.5C10.5,7.5 14,10.5 14,10.5C14,10.5 17.5,7.5 17.5,5.5C17.5,4.39 16.61,3.5 15.5,3.5Z' fill='black'/%3E%3C/svg%3E");
+            /* Actually, let's use a simpler clip-path approach on the child for better reliability without external SVGs */
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+        }
+
+        /* Wave animation for the liquid */
+        .wave {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            border-radius: 40%;
+            background-color: rgba(234, 91, 12, 0.4);
+            animation: rotate 6s linear infinite;
+            z-index: 10;
+        }
+        .wave:nth-child(2) {
+            top: -55%;
+            left: -45%;
+            border-radius: 35%;
+            background-color: rgba(234, 91, 12, 0.8);
+            animation: rotate 8s linear infinite reverse;
+            z-index: 20;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-background-light font-body text-secondary overflow-hidden relative selection:bg-primary selection:text-white">
+<!-- Noise Texture Overlay -->
+<div class="absolute inset-0 z-0 bg-noise pointer-events-none opacity-40 mix-blend-multiply"></div>
+<!-- Header (Simple Brand) -->
+<header class="relative z-10 flex items-center justify-center pt-8 pb-4">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">psychology</span>
+</div>
+<h1 class="text-secondary font-display text-xl font-bold tracking-tight">Supera Vitality</h1>
+</div>
+</header>
+<!-- Main Content: Analysis -->
+<main class="relative z-10 flex-grow flex flex-col items-center justify-center p-6 w-full max-w-4xl mx-auto">
+<!-- Central Analysis Container -->
+<div class="flex flex-col items-center justify-center w-full max-w-lg">
+<!-- Brain Animation Area -->
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 mb-12 flex items-center justify-center">
+<!-- Glowing Aura Background -->
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+<!-- Brain SVG Container -->
+<div class="relative w-full h-full">
+<!-- Base Brain Outline (SVG) -->
+<svg class="w-full h-full drop-shadow-xl" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Gradient for the stroke -->
+<lineargradient id="strokeGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#EA5B0C;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#F4965B;stop-opacity:1"></stop>
+</lineargradient>
+<!-- Mask for the fluid fill -->
+<mask id="brainMask">
+<path d="M100,30 C75,30 60,45 50,60 C40,55 20,65 20,90 C20,115 35,130 50,140 C55,165 80,180 100,180 C120,180 145,165 150,140 C165,130 180,115 180,90 C180,65 160,55 150,60 C140,45 125,30 100,30 Z" fill="white"></path>
+</mask>
+</defs>
+<!-- The "Empty" Brain Background -->
+<path d="M100,30 C75,30 60,45 50,60 C40,55 20,65 20,90 C20,115 35,130 50,140 C55,165 80,180 100,180 C120,180 145,165 150,140 C165,130 180,115 180,90 C180,65 160,55 150,60 C140,45 125,30 100,30 Z" fill="#FFFBF7" stroke="#E5E5E5" stroke-width="2"></path>
+<!-- Fluid Simulation Group (Masked by Brain Shape) -->
+<g mask="url(#brainMask)">
+<!-- The Container that fills up -->
+<foreignobject height="200" width="200" x="0" y="0">
+<div class="w-full h-full relative flex items-end justify-center overflow-hidden">
+<!-- This div moves up to simulate filling -->
+<div class="relative w-full bg-transparent h-0 animate-[fillUp_8s_ease-in-out_forwards]">
+<!-- Waves inside the rising liquid -->
+<div class="wave"></div>
+<div class="wave"></div>
+</div>
+</div>
+</foreignobject>
+</g>
+<!-- Brain Inner Details (Overlay on top of fluid) -->
+<path class="drop-shadow-sm" d="M100,30 C75,30 60,45 50,60 C40,55 20,65 20,90 C20,115 35,130 50,140 C55,165 80,180 100,180 C120,180 145,165 150,140 C165,130 180,115 180,90 C180,65 160,55 150,60 C140,45 125,30 100,30 Z" fill="none" stroke="url(#strokeGradient)" stroke-width="3"></path>
+<!-- Decorative internal synapses lines -->
+<path d="M60,80 Q80,60 100,80 T140,80" fill="none" stroke="#EA5B0C" stroke-linecap="round" stroke-opacity="0.2" stroke-width="2"></path>
+<path d="M50,110 Q70,140 100,120 T150,110" fill="none" stroke="#EA5B0C" stroke-linecap="round" stroke-opacity="0.2" stroke-width="2"></path>
+<path d="M100,30 V180" fill="none" stroke="#EA5B0C" stroke-dasharray="4 4" stroke-opacity="0.1" stroke-width="2"></path>
+</svg>
+<!-- Icon Overlay (Optional: Sparkles to show activity) -->
+<div class="absolute top-10 right-10 animate-bounce">
+<span class="material-symbols-outlined text-primary/60 text-xl">auto_awesome</span>
+</div>
+</div>
+</div>
+<!-- Dynamic Status Text -->
+<div aria-live="polite" class="text-center space-y-2 h-20">
+<h2 class="text-2xl sm:text-3xl font-display font-bold text-secondary animate-fade-in-out">
+                    Analisando padrões de resposta...
+                </h2>
+<p class="text-secondary-text text-base sm:text-lg font-body">
+                    Isso levará apenas alguns segundos
+                </p>
+</div>
+<!-- Progress Indicator -->
+<div class="w-full max-w-xs mt-10 space-y-3">
+<!-- Percentage Counter -->
+<div class="flex justify-between items-end px-1">
+<span class="text-sm font-bold text-secondary-text uppercase tracking-widest">Processando</span>
+<span class="font-mono text-primary font-bold text-xl" id="progress-text">0%</span>
+</div>
+<!-- Progress Bar Track -->
+<div class="h-3 w-full bg-white rounded-full border border-gray-100 shadow-inner overflow-hidden relative">
+<!-- Animated Progress Fill -->
+<div class="h-full bg-primary rounded-full relative w-0 animate-[fillUp_8s_cubic-bezier(0.4,0,0.2,1)_forwards]">
+<!-- Shine effect on bar -->
+<div class="absolute top-0 right-0 bottom-0 left-0 bg-gradient-to-b from-white/30 to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Trust Badge / Reassurance -->
+<div class="mt-12 flex items-center gap-2 text-secondary-text/60 text-sm">
+<span class="material-symbols-outlined text-lg">lock</span>
+<span>Seus dados são processados com criptografia de ponta a ponta.</span>
+</div>
+</div>
+</main>
+<!-- JS to update percentage text to match the CSS animation roughly -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressText = document.getElementById('progress-text');
+            const duration = 8000; // 8 seconds
+            const intervalTime = 50;
+            let currentTime = 0;
+
+            const updateCounter = setInterval(() => {
+                currentTime += intervalTime;
+                
+                // Calculate percentage based on time, mimicking ease-in-out visually
+                // Simple linear for text sync, or apply an easing function
+                let progress = Math.min((currentTime / duration) * 100, 100);
+                
+                // Add some randomness/stalls to make it feel like "calculation"
+                if (progress > 30 && progress < 40) progress -= 0.2; 
+                if (progress > 70 && progress < 80) progress -= 0.1;
+
+                progressText.innerText = Math.round(progress) + '%';
+
+                if (currentTime >= duration) {
+                    clearInterval(updateCounter);
+                    progressText.innerText = '100%';
+                    // Here you would redirect: window.location.href = '/results';
+                }
+            }, intervalTime);
+
+            // Cycle text messages
+            const messages = [
+                "Analisando padrões de resposta...",
+                "Comparando com dados da sua região...",
+                "Gerando seu perfil cognitivo...",
+                "Finalizando diagnóstico..."
+            ];
+            
+            const titleElement = document.querySelector('h2');
+            let messageIndex = 0;
+
+            setInterval(() => {
+                messageIndex = (messageIndex + 1) % messages.length;
+                // Simple text swap. The CSS animation handles the opacity fade.
+                // ideally we sync the text change when opacity is low, but for this demo simple swap works.
+                setTimeout(() => {
+                     titleElement.innerText = messages[messageIndex];
+                }, 1000); // Slight offset to change text while it might be fading out/in
+            }, 2500);
+        });
+    </script>
+</body></html>

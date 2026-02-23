@@ -1,6 +1,8 @@
 import headerComponent from '../components/header.js'
 import { generateCertificate } from '../utils/certificate.js'
 import { shareOnWhatsApp } from '../utils/whatsapp.js'
+import squeezeImg from '../assets/squeeze.png'
+import atendimentoImg from '../assets/atendimento.png'
 
 export default function renderRewards() {
   const container = document.createElement('div')
@@ -61,8 +63,8 @@ export default function renderRewards() {
       <label class="relative cursor-pointer group/card w-full">
         <input type="radio" name="reward" value="squeeze" class="peer sr-only" required>
         <div class="reward-card h-full flex flex-col bg-white rounded-2xl shadow-warm hover:shadow-warm-hover overflow-hidden p-1 border-4 border-transparent peer-checked:border-primary peer-checked:-translate-y-1">
-          <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-orange-50 flex items-center justify-center font-bold text-primary/50 text-sm">
-            [squeeze.jpg] Placeholder
+          <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-orange-50">
+            <img src="${squeezeImg}" alt="Squeeze Supera" class="w-full h-full object-cover">
           </div>
           <div class="flex flex-col flex-1 p-5 gap-3">
             <div class="flex items-start justify-between">
@@ -82,8 +84,8 @@ export default function renderRewards() {
       <label class="relative cursor-pointer group/card w-full">
         <input type="radio" name="reward" value="evaluation" class="peer sr-only" required>
         <div class="reward-card h-full flex flex-col bg-white rounded-2xl shadow-warm hover:shadow-warm-hover overflow-hidden p-1 border-4 border-transparent peer-checked:border-primary peer-checked:-translate-y-1">
-          <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-blue-50 flex items-center justify-center font-bold text-blue-800/50 text-sm">
-            [doctor.jpg] Placeholder
+          <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-blue-50">
+            <img src="${atendimentoImg}" alt="Avaliação Gratuita" class="w-full h-full object-cover">
             <div class="absolute bottom-4 left-4 text-white flex items-center gap-2">
               <span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold uppercase">Recomendado</span>
             </div>

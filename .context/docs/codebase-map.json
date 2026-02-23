@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-02-21T12:51:56.707Z",
+  "stack": {
+    "primaryLanguage": null,
+    "languages": [],
+    "frameworks": [],
+    "buildTools": [],
+    "testFrameworks": [],
+    "packageManager": null,
+    "isMonorepo": false,
+    "hasDocker": false,
+    "hasCI": false
+  },
+  "structure": {
+    "totalFiles": 11,
+    "rootPath": ".",
+    "topDirectories": [
+      {
+        "name": "stitch_supera_vitality_prd",
+        "fileCount": 10,
+        "description": "Module directory"
+      }
+    ],
+    "languageDistribution": [
+      {
+        "extension": ".png",
+        "count": 6
+      },
+      {
+        "extension": ".html",
+        "count": 5
+      }
+    ]
+  },
+  "architecture": {
+    "layers": [],
+    "patterns": [],
+    "entryPoints": [],
+    "mainEntryPoints": [],
+    "moduleExports": []
+  },
+  "symbols": {
+    "classes": [],
+    "interfaces": [],
+    "functions": [],
+    "types": [],
+    "enums": []
+  },
+  "publicAPI": [],
+  "dependencies": {
+    "mostImported": []
+  },
+  "stats": {
+    "totalSymbols": 0,
+    "exportedSymbols": 0,
+    "analysisTimeMs": 157
+  },
+  "keyFiles": [],
+  "navigation": {
+    "tests": "src/**/*.test.ts",
+    "config": [],
+    "types": [],
+    "mainLogic": [
+      "src"
+    ]
+  }
+}

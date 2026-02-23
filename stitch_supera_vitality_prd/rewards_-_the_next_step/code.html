@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supera Vitality - Rewards</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#EA5B0C", // Supera Orange
+                        "primary-hover": "#F4965B",
+                        "secondary": "#591C0B", // Deep Terracotta
+                        "secondary-light": "#8C4F3E",
+                        "background-light": "#FFFBF7", // Warm Paper
+                        "background-dark": "#221610",
+                        "whatsapp": "#25D366",
+                        "whatsapp-hover": "#1DA851",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'warm': '0 10px 30px -10px rgba(234, 91, 12, 0.15)',
+                        'warm-hover': '0 20px 40px -12px rgba(234, 91, 12, 0.25)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for interactions that Tailwind generic classes might not cover fully or for specific component logic */
+        .reward-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reward-card.selected {
+            border-color: #EA5B0C;
+            border-width: 4px;
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+
+        .reward-card:not(.selected) {
+            border-color: transparent;
+            border-width: 4px; /* Maintain layout stability */
+        }
+
+        /* Peer logic for dimming unselected siblings */
+        .group:hover .reward-card:not(:hover):not(.selected) {
+            opacity: 0.6;
+        }
+
+        /* If a selection is made, dim unselected */
+        .has-selection .reward-card:not(.selected) {
+            opacity: 0.5;
+            filter: grayscale(0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-secondary antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<div class="relative flex w-full flex-col bg-[#fcf9f8] border-b border-[#f4ebe7]">
+<div class="layout-container flex w-full justify-center">
+<div class="layout-content-container flex w-full max-w-[960px] flex-col">
+<header class="flex items-center justify-between whitespace-nowrap px-4 py-3 md:px-10">
+<div class="flex items-center gap-4 text-[#1c120d]">
+<div class="size-8 text-primary">
+<!-- Supera Logo Placeholder / Brain Icon -->
+<span class="material-symbols-outlined text-4xl">psychology</span>
+</div>
+<h2 class="text-secondary text-xl font-bold leading-tight tracking-[-0.015em]">Supera Vitality</h2>
+</div>
+<!-- Menu Button -->
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-[#f4ebe7] text-secondary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-start py-8 px-4 md:py-12" id="main-container">
+<div class="max-w-[960px] w-full flex flex-col gap-8">
+<!-- Header Section -->
+<div class="flex flex-col gap-4 text-center md:text-left animate-fade-in-up">
+<div class="inline-flex items-center gap-2 self-center md:self-start bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                    Análise Concluída
+                </div>
+<h1 class="text-secondary text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+                    Parabéns pelo primeiro passo!
+                </h1>
+<p class="text-secondary-light text-lg md:text-xl font-medium leading-relaxed max-w-2xl">
+                    Seu resultado indica que você tem grande potencial. Para continuar estimulando seu cérebro, escolha seu presente exclusivo de conclusão:
+                </p>
+</div>
+<!-- Rewards Selection Area -->
+<!-- We use a container class 'has-selection' which would be toggled by JS in a real app. 
+                 For this static demo, we'll simulate the state where one might be selected or hovered. 
+                 Since I cannot add JS, I will style them neutrally but ready for interaction. -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full group" id="cards-container">
+<!-- Card 1: Squeeze -->
+<label class="relative cursor-pointer group/card">
+<input class="peer sr-only" name="reward" onchange="document.getElementById('cards-container').classList.add('has-selection'); document.getElementById('card-1').classList.add('selected'); document.getElementById('card-2').classList.remove('selected');" type="radio" value="squeeze"/>
+<div class="reward-card h-full flex flex-col bg-white rounded-2xl shadow-warm hover:shadow-warm-hover overflow-hidden p-1" id="card-1">
+<!-- Image Container -->
+<div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-orange-50">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1602143407151-01114192003b?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover/card:scale-105" data-alt="Close up of a modern, reusable water bottle on a warm, sunny table"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white flex items-center gap-2">
+<span class="bg-primary px-2 py-1 rounded text-xs font-bold uppercase">Popular</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex items-start justify-between">
+<h3 class="text-xl md:text-2xl font-bold text-secondary font-display">Squeeze Exclusivo Supera</h3>
+<div class="size-6 rounded-full border-2 border-gray-300 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
+<div class="size-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<p class="text-secondary-light leading-relaxed">
+                                Ideal para manter a hidratação e o foco durante seus treinos cognitivos diários. Um companheiro físico para sua jornada mental.
+                            </p>
+<ul class="mt-auto pt-4 space-y-2">
+<li class="flex items-center gap-2 text-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-primary text-lg">water_drop</span>
+                                    Design ergonômico
+                                </li>
+<li class="flex items-center gap-2 text-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-primary text-lg">eco</span>
+                                    Material sustentável
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Checkmark Overlay for selected state (Visual feedback) -->
+<div class="absolute top-4 right-4 bg-primary text-white rounded-full p-1 opacity-0 transition-opacity duration-300 peer-checked:opacity-100 shadow-lg z-10">
+<span class="material-symbols-outlined">check</span>
+</div>
+</label>
+<!-- Card 2: Neuropsychological Evaluation -->
+<label class="relative cursor-pointer group/card">
+<input class="peer sr-only" name="reward" onchange="document.getElementById('cards-container').classList.add('has-selection'); document.getElementById('card-2').classList.add('selected'); document.getElementById('card-1').classList.remove('selected');" type="radio" value="evaluation"/>
+<div class="reward-card h-full flex flex-col bg-white rounded-2xl shadow-warm hover:shadow-warm-hover overflow-hidden p-1" id="card-2">
+<!-- Image Container -->
+<div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-blue-50">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160550-217358c7e618?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover/card:scale-105" data-alt="A professional doctor discussing results with a patient in a warm, modern office setting"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white flex items-center gap-2">
+<span class="bg-blue-600 px-2 py-1 rounded text-xs font-bold uppercase">Recomendado</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex items-start justify-between">
+<h3 class="text-xl md:text-2xl font-bold text-secondary font-display">Avaliação Neuropsicológica</h3>
+<div class="size-6 rounded-full border-2 border-gray-300 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
+<div class="size-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<p class="text-secondary-light leading-relaxed">
+                                Uma sessão presencial gratuita com especialista para uma análise profunda da sua memória, atenção e raciocínio lógico.
+                            </p>
+<ul class="mt-auto pt-4 space-y-2">
+<li class="flex items-center gap-2 text-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-primary text-lg">medical_services</span>
+                                    Especialistas certificados
+                                </li>
+<li class="flex items-center gap-2 text-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span>
+                                    Laudo detalhado
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Checkmark Overlay -->
+<div class="absolute top-4 right-4 bg-primary text-white rounded-full p-1 opacity-0 transition-opacity duration-300 peer-checked:opacity-100 shadow-lg z-10">
+<span class="material-symbols-outlined">check</span>
+</div>
+</label>
+</div>
+</div>
+</main>
+<!-- Sticky Footer CTA -->
+<div class="sticky bottom-0 z-50 w-full bg-white border-t border-[#f4ebe7] p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="max-w-[960px] mx-auto flex flex-col items-center gap-3">
+<button class="w-full md:max-w-md group relative flex items-center justify-center gap-3 bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-green-200 hover:-translate-y-1">
+<!-- WhatsApp Icon SVG -->
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+</svg>
+                Confirmar e Enviar no WhatsApp
+            </button>
+<p class="text-xs text-secondary-light/70 text-center flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                Seus dados estão protegidos. Não enviamos spam.
+            </p>
+</div>
+</div>
+</body></html>

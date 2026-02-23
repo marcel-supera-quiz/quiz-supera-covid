@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supera Vitality - Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e9590c",
+                        "primary-hover": "#d14900",
+                        "secondary": "#591C0B",
+                        "tertiary": "#8C4F3E",
+                        "background-light": "#FFFBF7",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'warm': '0 20px 40px -15px rgba(233, 89, 12, 0.15)',
+                        'input': '0 2px 0 0 rgba(229, 231, 235, 1)',
+                        'input-focus': '0 2px 0 0 #e9590c',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom floating label styles since Tailwind forms plugin can be basic */
+        .floating-input:placeholder-shown + label {
+            transform: translateY(0) scale(1);
+            color: #9CA3AF;
+        }
+        .floating-input:not(:placeholder-shown) + label,
+        .floating-input:focus + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #e9590c;
+        }
+        
+        /* Smooth transition for split background */
+        .bg-split {
+            background: linear-gradient(to bottom, #e9590c 35%, #FFFBF7 35%);
+        }
+        
+        @media (min-width: 1024px) {
+            .bg-split {
+                background: linear-gradient(to bottom, #e9590c 30%, #FFFBF7 30%);
+            }
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light text-secondary antialiased min-h-screen flex flex-col">
+<!-- Navbar (Simplified for context) -->
+<header class="absolute top-0 w-full z-10 px-6 py-4 lg:px-12">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">psychology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Supera Vitality</h2>
+</div>
+<div class="hidden sm:flex text-white/80 text-sm font-medium gap-2 items-center">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+                Ambiente Seguro
+            </div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center w-full min-h-screen bg-split px-4 py-20 relative overflow-hidden">
+<!-- Background Elements (Abstract decorations) -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute top-[20%] left-[-10%] w-72 h-72 bg-orange-600/20 rounded-full blur-2xl"></div>
+</div>
+<!-- Central Card -->
+<div class="w-full max-w-[520px] bg-white rounded-xl shadow-warm relative z-10 animate-fade-in-up">
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-gray-100 rounded-t-xl overflow-hidden flex">
+<div class="h-full bg-primary w-[10%] transition-all duration-500 ease-out"></div>
+</div>
+<div class="p-8 md:p-10">
+<!-- Header -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary">waving_hand</span>
+</div>
+<h1 class="text-3xl font-bold text-secondary mb-3 leading-tight">Vamos nos conhecer</h1>
+<p class="text-tertiary text-base leading-relaxed max-w-sm mx-auto">
+                        Essas informações nos ajudam a comparar sua memória com a média da sua faixa etária.
+                    </p>
+</div>
+<!-- Form -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Nome Completo -->
+<div class="relative group">
+<input class="floating-input block w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer text-secondary font-medium placeholder-transparent" id="fullname" placeholder="Nome Completo" required="" type="text"/>
+<label class="absolute text-tertiary duration-300 transform -translate-y-1.5 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-6 cursor-text" for="fullname">
+                            Nome Completo
+                        </label>
+<span class="material-symbols-outlined absolute right-0 bottom-3 text-green-500 opacity-0 transition-opacity peer-valid:opacity-100 text-xl">check_circle</span>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<!-- Idade -->
+<div class="relative">
+<input class="floating-input block w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer text-secondary font-medium placeholder-transparent" id="age" max="120" min="18" placeholder="Idade" required="" type="number"/>
+<label class="absolute text-tertiary duration-300 transform -translate-y-1.5 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-6 cursor-text" for="age">
+                                Idade (anos)
+                            </label>
+</div>
+<!-- Cidade/UF (Simulated Dropdown) -->
+<div class="relative">
+<select class="floating-input block w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer text-secondary font-medium cursor-pointer" id="city" required="">
+<option class="text-gray-400" disabled="" selected="" value=""></option>
+<option value="sp">São Paulo, SP</option>
+<option value="rj">Rio de Janeiro, RJ</option>
+<option value="mg">Belo Horizonte, MG</option>
+<option value="rs">Porto Alegre, RS</option>
+<option value="pr">Curitiba, PR</option>
+</select>
+<label class="absolute text-tertiary duration-300 transform -translate-y-1.5 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-6 pointer-events-none" for="city">
+                                Cidade / UF
+                            </label>
+<span class="material-symbols-outlined absolute right-0 bottom-3 text-tertiary pointer-events-none text-xl">expand_more</span>
+</div>
+</div>
+<!-- Celular / WhatsApp -->
+<div class="relative">
+<input class="floating-input block w-full px-0 py-3 pl-8 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer text-secondary font-medium placeholder-transparent" id="phone" placeholder="(00) 00000-0000" required="" type="tel"/>
+<span class="material-symbols-outlined absolute left-0 bottom-3 text-tertiary peer-focus:text-primary transition-colors text-xl">call</span>
+<label class="absolute left-8 text-tertiary duration-300 transform -translate-y-1.5 scale-75 top-3 -z-10 origin-[0] peer-focus:left-8 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-6 cursor-text" for="phone">
+                            WhatsApp (para o resultado)
+                        </label>
+<!-- Helper text -->
+<p class="mt-1 text-xs text-tertiary/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                            Não enviamos spam. Seus dados estão seguros.
+                        </p>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-full text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:transform-none" type="submit">
+                            CONTINUAR
+                            <span class="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Footer of card -->
+<div class="bg-gray-50 rounded-b-xl px-8 py-4 border-t border-gray-100 flex justify-between items-center text-xs text-tertiary/80">
+<span>Passo 1 de 4</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+</div>
+</div>
+</div>
+<!-- Privacy Badge -->
+<div class="absolute bottom-6 flex items-center gap-2 text-tertiary/60 text-sm">
+<span class="material-symbols-outlined text-lg">verified</span>
+<span>Seguindo diretrizes LGPD</span>
+</div>
+</main>
+<!-- Image Preloads for smooth UX -->
+<img class="hidden" data-alt="Hidden preload pixel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlehbsTSTRukLw75m_-hDKOhVcrd10DrbUzH1rZ8orzYJQyJ2Yl8KbjYhbr-LyzmfNMGR6c_4cu173j60ht9KtYxXrqRXO4LJDphseQt2xQxn82Gld1scFh3uNfKvyMiL5emVXEue02WFc9087jLx-AM8RdDvTOLkWOc3i1B2GRjv-fcU9u8p_5q-2ZbeNb6_Hb01OwYvLcg8CwxWXa1EA9i3o4V2WB8PDpKzN6UaWjjCcuC8Ir7I2CFdvs3073xPPdSV6CTiqzDx7"/>
+</body></html>

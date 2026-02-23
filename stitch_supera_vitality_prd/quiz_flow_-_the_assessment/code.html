@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supera Vitality - Avaliação Cognitiva</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Mulish:wght@400;500;700&amp;family=Chivo+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e9590c",
+                        "primary-hover": "#d14d09",
+                        "secondary": "#591C0B",
+                        "tertiary": "#8C4F3E",
+                        "accent": "#F4965B",
+                        "background-light": "#FFFBF7", 
+                        "background-dark": "#221610",
+                        "surface": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Mulish", "sans-serif"],
+                        "mono": ["Chivo Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 10px 30px -10px rgba(234, 91, 12, 0.15)",
+                        "inner-soft": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Styles for Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #e9590c;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 0 0 4px rgba(233, 89, 12, 0.2);
+            transition: transform 0.1s;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e8d7ce;
+            border-radius: 2px;
+        }
+
+        /* Checkbox Custom Styles */
+        .checkbox-pill:checked + div {
+            background-color: #e9590c;
+            color: white;
+            border-color: #e9590c;
+        }
+
+        .radio-circle:checked + div {
+            background-color: #e9590c;
+            color: white;
+            border-color: #e9590c;
+            transform: scale(1.05);
+        }
+
+        /* Fade Animation for Question Transition */
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInRight 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-secondary font-display min-h-screen flex flex-col antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden">
+<!-- Header Navigation -->
+<header class="flex items-center justify-between px-6 py-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">psychology</span>
+</div>
+<h2 class="text-secondary text-xl font-bold tracking-tight hidden sm:block">Supera Vitality</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-tertiary hover:text-primary text-sm font-bold transition-colors">
+                SAIR
+            </button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-8 md:px-6 w-full max-w-4xl mx-auto">
+<!-- Progress Indicator -->
+<div class="w-full max-w-2xl mb-8 md:mb-12">
+<div class="flex justify-between items-end mb-3 px-1">
+<span class="text-secondary font-bold text-lg">Questão 3 de 10</span>
+<span class="text-tertiary text-sm font-medium">30% concluído</span>
+</div>
+<div class="h-3 w-full bg-[#e8d7ce] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out" style="width: 30%"></div>
+</div>
+</div>
+<!-- Question Container -->
+<div class="w-full max-w-2xl animate-fade-in">
+<!-- Question Card -->
+<div class="bg-surface rounded-2xl md:rounded-[2rem] shadow-soft p-6 md:p-12 mb-8 border border-orange-100/50">
+<!-- Question Text -->
+<h1 class="text-2xl md:text-3xl font-bold text-secondary text-center mb-4 leading-tight">
+                    Com que frequência você esquece onde guardou objetos de uso diário (chaves, óculos)?
+                </h1>
+<p class="text-tertiary text-center mb-10 text-lg font-body">
+                    Selecione a opção que melhor descreve sua rotina atual.
+                </p>
+<!-- Interactive Input Area: Choose ONE of the blocks below based on question type (Simulated) -->
+<!-- TYPE 1: Likert Scale (Active for this demo) -->
+<div class="flex flex-col items-center gap-8">
+<div class="flex flex-wrap justify-center gap-3 md:gap-6 w-full">
+<!-- Option 1 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only radio-circle" name="q3" type="radio" value="1"/>
+<div class="size-12 md:size-16 rounded-full border-2 border-orange-200 bg-white text-secondary font-bold text-lg md:text-xl flex items-center justify-center transition-all duration-200 hover:border-primary peer-focus:ring-2 peer-focus:ring-primary/50 group-hover:scale-105 shadow-sm">
+                                1
+                            </div>
+<span class="block text-center text-xs font-bold text-tertiary mt-2 uppercase tracking-wide opacity-0 group-hover:opacity-100 peer-checked:opacity-100 peer-checked:text-primary transition-opacity">Nunca</span>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only radio-circle" name="q3" type="radio" value="2"/>
+<div class="size-12 md:size-16 rounded-full border-2 border-orange-200 bg-white text-secondary font-bold text-lg md:text-xl flex items-center justify-center transition-all duration-200 hover:border-primary peer-focus:ring-2 peer-focus:ring-primary/50 group-hover:scale-105 shadow-sm">
+                                2
+                            </div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only radio-circle" name="q3" type="radio" value="3"/>
+<div class="size-12 md:size-16 rounded-full border-2 border-orange-200 bg-white text-secondary font-bold text-lg md:text-xl flex items-center justify-center transition-all duration-200 hover:border-primary peer-focus:ring-2 peer-focus:ring-primary/50 group-hover:scale-105 shadow-sm">
+                                3
+                            </div>
+<span class="block text-center text-xs font-bold text-tertiary mt-2 uppercase tracking-wide opacity-0 group-hover:opacity-100 peer-checked:opacity-100 peer-checked:text-primary transition-opacity">Às vezes</span>
+</label>
+<!-- Option 4 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only radio-circle" name="q3" type="radio" value="4"/>
+<div class="size-12 md:size-16 rounded-full border-2 border-orange-200 bg-white text-secondary font-bold text-lg md:text-xl flex items-center justify-center transition-all duration-200 hover:border-primary peer-focus:ring-2 peer-focus:ring-primary/50 group-hover:scale-105 shadow-sm">
+                                4
+                            </div>
+</label>
+<!-- Option 5 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only radio-circle" name="q3" type="radio" value="5"/>
+<div class="size-12 md:size-16 rounded-full border-2 border-orange-200 bg-white text-secondary font-bold text-lg md:text-xl flex items-center justify-center transition-all duration-200 hover:border-primary peer-focus:ring-2 peer-focus:ring-primary/50 group-hover:scale-105 shadow-sm">
+                                5
+                            </div>
+<span class="block text-center text-xs font-bold text-tertiary mt-2 uppercase tracking-wide opacity-0 group-hover:opacity-100 peer-checked:opacity-100 peer-checked:text-primary transition-opacity">Sempre</span>
+</label>
+</div>
+</div>
+<!-- TYPE 2: Symptom Grid (Hidden for demo, structure provided for context) -->
+<!--
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-6">
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="q7" class="peer sr-only checkbox-pill" value="foco">
+                        <div class="bg-background-light border-2 border-transparent hover:border-accent/30 text-secondary font-medium px-6 py-4 rounded-xl flex items-center gap-3 transition-all duration-200 shadow-inner-soft">
+                            <span class="material-symbols-outlined text-accent group-hover:scale-110 transition-transform">center_focus_weak</span>
+                            <span>Dificuldade de Foco</span>
+                        </div>
+                    </label>
+                    ...
+                </div>
+                -->
+<!-- TYPE 3: Range Slider (Hidden for demo, structure provided for context) -->
+<!--
+                <div class="w-full px-4 mt-8">
+                     <div class="relative pt-6 pb-2">
+                        <input type="range" min="0" max="2" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-tertiary font-bold mt-4">
+                            <span>Menos de 10</span>
+                            <span>10 - 20</span>
+                            <span>20+</span>
+                        </div>
+                    </div>
+                </div>
+                -->
+</div>
+<!-- Navigation Controls -->
+<div class="flex items-center justify-between mt-8 px-2 md:px-0">
+<button class="flex items-center gap-2 text-tertiary hover:text-secondary font-bold px-4 py-2 rounded-lg transition-colors group">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Anterior</span>
+</button>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200">
+<span>PRÓXIMO</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer decoration / Trust badges -->
+<footer class="pb-6 text-center">
+<div class="flex justify-center items-center gap-6 text-tertiary/60 text-sm font-medium">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">lock</span>
+<span>Dados 100% seguros</span>
+</div>
+<div class="w-1 h-1 bg-tertiary/40 rounded-full"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg">verified</span>
+<span>Baseado em neurociência</span>
+</div>
+</div>
+</footer>
+</body></html>
