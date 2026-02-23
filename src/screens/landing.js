@@ -18,7 +18,7 @@ export default function renderLanding() {
     <main class="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-12 py-8 lg:py-0">
       <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-center h-full">
         <!-- Left Column: Copy & CTA -->
-        <div class="flex flex-col items-start gap-8 max-w-xl animate-fade-in-up">
+        <div class="flex flex-col items-start gap-8 max-w-xl animate-fade-in-up order-2 lg:order-1">
           <div class="space-y-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-primary text-xs font-bold uppercase tracking-wider">
               <span class="material-symbols-outlined text-[16px]">health_and_safety</span>
@@ -77,7 +77,7 @@ export default function renderLanding() {
         </div>
 
         <!-- Right Column: Hero Illustration -->
-        <div class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end">
+        <div class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end order-1 lg:order-2">
           <div class="absolute inset-0 flex items-center justify-center lg:justify-end opacity-20 pointer-events-none">
             <div class="w-[120%] h-[120%] bg-gradient-to-br from-orange-200 to-transparent rounded-full blur-3xl transform translate-x-10 translate-y-10"></div>
           </div>
