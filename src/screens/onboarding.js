@@ -65,14 +65,14 @@ export default function renderOnboarding() {
           </div>
 
           <div class="relative pt-4 group">
-            <div class="flex items-center border-b-2 border-gray-200 focus-within:border-primary transition-colors">
+            <div class="flex items-center border-b-2 border-gray-200 focus-within:border-primary transition-colors relative">
               <span class="material-symbols-outlined text-secondary-light group-focus-within:text-primary transition-colors text-xl mr-2">call</span>
               <input type="tel" id="phone" placeholder="(00) 00000-0000" required maxlength="15"
                 class="floating-input block w-full py-3 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer text-secondary font-medium placeholder-transparent">
+              <label for="phone" class="absolute left-8 text-secondary-light duration-300 transform -translate-y-1.5 scale-75 top-3 -z-10 origin-[0] peer-focus:left-8 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-10 cursor-text">
+                WhatsApp (para o certificado)
+              </label>
             </div>
-            <label for="phone" class="absolute left-8 text-secondary-light duration-300 transform -translate-y-1.5 scale-75 top-7 -z-10 origin-[0] peer-focus:left-8 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-85 peer-focus:-translate-y-10 cursor-text">
-              WhatsApp (para o certificado)
-            </label>
             <p class="mt-1 text-xs text-secondary-light/70 flex items-center gap-1">
               <span class="material-symbols-outlined text-[14px]">lock</span>
               Não enviamos spam. Seus dados estão seguros.
