@@ -35,9 +35,9 @@ export default function renderLanding() {
             </p>
           </div>
 
-          <!-- CTA Section -->
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
-            <button id="start-btn" class="group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold text-base uppercase tracking-wider py-4 px-8 rounded-full shadow-[0_10px_30px_-10px_rgba(234,91,12,0.4)] transition-all duration-300 transform hover:scale-105 animate-subtle-pulse w-full sm:w-auto">
+          <!-- CTA Section (Desktop Only) -->
+          <div class="hidden lg:flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
+            <button class="start-btn group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold text-base uppercase tracking-wider py-4 px-8 rounded-full shadow-[0_10px_30px_-10px_rgba(234,91,12,0.4)] transition-all duration-300 transform hover:scale-105 animate-subtle-pulse w-full sm:w-auto">
               <span>Iniciar Avaliação</span>
               <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
@@ -77,7 +77,7 @@ export default function renderLanding() {
         </div>
 
         <!-- Right Column: Hero Illustration -->
-        <div class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end order-1 lg:order-2">
+        <div class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex flex-col items-center justify-center lg:justify-end order-1 lg:order-2 gap-8">
           <div class="absolute inset-0 flex items-center justify-center lg:justify-end opacity-20 pointer-events-none">
             <div class="w-[120%] h-[120%] bg-gradient-to-br from-orange-200 to-transparent rounded-full blur-3xl transform translate-x-10 translate-y-10"></div>
           </div>
@@ -101,6 +101,18 @@ export default function renderLanding() {
               </div>
             </div>
           </div>
+
+          <!-- CTA Section (Mobile Only) -->
+          <div class="flex lg:hidden flex-col gap-4 w-full pt-2">
+            <button class="start-btn group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold text-base uppercase tracking-wider py-4 px-8 rounded-full shadow-[0_10px_30px_-10px_rgba(234,91,12,0.4)] transition-all duration-300 transform hover:scale-105 animate-subtle-pulse w-full">
+              <span>Iniciar Avaliação</span>
+              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+            <div class="flex items-center gap-2 text-secondary-light text-sm mt-2 justify-center w-full">
+              <span class="material-symbols-outlined text-[18px]">timer</span>
+              <span>Duração: 3 min</span>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -112,8 +124,11 @@ export default function renderLanding() {
   `
 
   setTimeout(() => {
-    document.getElementById('start-btn').addEventListener('click', () => {
-      navigate('/onboarding')
+    const startBtns = document.querySelectorAll('.start-btn')
+    startBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navigate('/onboarding')
+      })
     })
   }, 0)
 
