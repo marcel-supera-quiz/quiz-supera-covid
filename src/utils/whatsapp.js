@@ -12,7 +12,7 @@ export function shareOnWhatsApp(participant, results, rewardSelected) {
     const phone = '5519981760534'
 
     if (isMobile) {
-        window.open(`whatsapp://send?phone=${phone}&text=${encodedMsg}`)
+        window.open(`whatsapp://send?phone=${phone}&text=${encodedMsg}`, '_blank')
     } else {
         window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodedMsg}`, '_blank')
     }

@@ -1,6 +1,7 @@
 import headerComponent from '../components/header.js'
 import { generateCertificate } from '../utils/certificate.js'
 import { shareOnWhatsApp } from '../utils/whatsapp.js'
+import { navigate } from '../router.js'
 import squeezeImg from '../assets/squeeze.png'
 import atendimentoImg from '../assets/atendimento.png'
 
@@ -132,7 +133,12 @@ export default function renderRewards() {
     document.getElementById('rewards-form').addEventListener('submit', (e) => {
       e.preventDefault()
       const selected = document.querySelector('input[name="reward"]:checked').value
+
+      // 1. Opens WhatsApp in a new tab/app (via window.open)
       shareOnWhatsApp(participantData, resultData, selected)
+
+      // 2. Immediately navigates the current tab to the thank you page
+      navigate('/thank-you')
     })
 
   }, 0)

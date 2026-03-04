@@ -69,16 +69,50 @@ export async function generateCertificate(resultData, participantName) {
 
     try {
         const canvas = await html2canvas(container, {
-            scale: 1, // Already set to 1080x1920
+            scale: 1,
             useCORS: true,
             logging: false
         })
 
-        // Download flow
-        const link = document.createElement('a')
-        link.download = `Certificado_Supera_${participantName}.png`
-        link.href = canvas.toDataURL('image/png')
-        link.click()
+        // Sanitize filename
+        const safeName = (participantName || 'Participante').replace(/[^a-zA-Z0-9À-ÿ\s_-]/g, '').trim()
+        const fileName = `Certificado_Supera_${safeName}.png`
+
+        // Use toBlob + msSaveBlob (Edge/IE) or manual download via fetch trick
+        canvas.toBlob((blob) => {
+            if (!blob) {
+                alert('Erro ao gerar a imagem do certificado.')
+                return
+            }
+
+            // IE/Edge legacy
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(blob, fileName)
+                return
+            }
+
+            // Modern browsers: create a File from the blob with proper name
+            const file = new File([blob], fileName, { type: 'image/png' })
+            const url = URL.createObjectURL(file)
+
+            const link = document.createElement('a')
+            link.href = url
+            link.download = fileName
+            link.style.cssText = 'position:fixed;left:-9999px;top:-9999px;'
+            document.body.appendChild(link)
+
+            // Use MouseEvent to trigger a trusted click
+            link.dispatchEvent(new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            }))
+
+            setTimeout(() => {
+                document.body.removeChild(link)
+                URL.revokeObjectURL(url)
+            }, 300)
+        }, 'image/png')
     } catch (e) {
         console.error("Failed to generate certificate", e)
         alert("Houve um erro ao gerar seu certificado.")
