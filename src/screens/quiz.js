@@ -1,43 +1,31 @@
 import { navigate } from '../router.js'
 import { questions } from '../logic/questions.js'
+import brainIcon from '../assets/favicon.png'
+import headerComponent from '../components/header.js'
 
 export default function renderQuiz() {
-    const container = document.createElement('div')
-    container.className = 'w-full min-h-screen flex flex-col bg-background-light'
+  const container = document.createElement('div')
+  container.className = 'w-full min-h-screen flex flex-col bg-background-light'
 
-    // Header 
-    const header = document.createElement('header')
-    header.className = 'flex items-center justify-between px-6 py-4 md:px-10 lg:px-40 sticky top-0 z-50'
-    header.innerHTML = `
-    <div class="flex items-center gap-3">
-      <div class="size-8 text-primary">
-        <span class="material-symbols-outlined text-4xl">psychology</span>
-      </div>
-      <h2 class="text-secondary text-xl font-bold tracking-tight hidden sm:block">Supera Vitality</h2>
-    </div>
-    <div class="flex items-center gap-4">
-      <button id="sair-btn" class="text-secondary-light hover:text-primary text-sm font-bold transition-colors">SAIR</button>
-    </div>
-  `
-    container.appendChild(header)
+  container.appendChild(headerComponent('light'))
 
-    const main = document.createElement('main')
-    main.className = 'flex-1 flex flex-col items-center justify-center px-4 py-8 md:px-6 w-full max-w-4xl mx-auto'
-    container.appendChild(main)
+  const main = document.createElement('main')
+  main.className = 'flex-1 flex flex-col items-center justify-center px-4 py-8 md:px-6 w-full max-w-4xl mx-auto'
+  container.appendChild(main)
 
-    let currentIndex = 0
-    const total = questions.length
-    const responses = {} // key: val
+  let currentIndex = 0
+  const total = questions.length
+  const responses = {} // key: val
 
-    function renderQuestion() {
-        const q = questions[currentIndex]
-        const percent = Math.round((currentIndex / total) * 100)
+  function renderQuestion() {
+    const q = questions[currentIndex]
+    const percent = Math.round((currentIndex / total) * 100)
 
-        // Clear main
-        main.innerHTML = ''
+    // Clear main
+    main.innerHTML = ''
 
-        // Progress
-        main.innerHTML += `
+    // Progress
+    main.innerHTML += `
       <div class="w-full max-w-2xl mb-8 md:mb-12">
         <div class="flex justify-between items-end mb-3 px-1">
           <span class="text-secondary font-bold text-lg">Questão ${currentIndex + 1} de ${total}</span>
@@ -49,13 +37,13 @@ export default function renderQuiz() {
       </div>
     `
 
-        // Question Box
-        const qContainer = document.createElement('div')
-        qContainer.className = 'w-full max-w-2xl animate-fade-in transition-opacity'
+    // Question Box
+    const qContainer = document.createElement('div')
+    qContainer.className = 'w-full max-w-2xl animate-fade-in transition-opacity'
 
-        let answerHtml = ''
-        if (q.type === 'scale') {
-            answerHtml = `
+    let answerHtml = ''
+    if (q.type === 'scale') {
+      answerHtml = `
         <div class="flex flex-col items-center gap-8">
           <div class="flex flex-wrap justify-center gap-3 md:gap-6 w-full">
             ${[1, 2, 3, 4, 5].map(v => `
@@ -69,9 +57,9 @@ export default function renderQuiz() {
           </div>
         </div>
       `
-        } else if (q.type === 'multi') {
-            const selectedArr = responses[q.key] || []
-            answerHtml = `
+    } else if (q.type === 'multi') {
+      const selectedArr = responses[q.key] || []
+      answerHtml = `
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-6">
           ${q.options.map(opt => `
             <label class="cursor-pointer group">
@@ -83,8 +71,8 @@ export default function renderQuiz() {
           `).join('')}
         </div>
       `
-        } else if (q.type === 'yesno') {
-            answerHtml = `
+    } else if (q.type === 'yesno') {
+      answerHtml = `
         <div class="flex justify-center gap-6 w-full mt-6">
           ${['Sim', 'Não'].map(opt => `
             <label class="cursor-pointer group w-32">
@@ -96,8 +84,8 @@ export default function renderQuiz() {
           `).join('')}
         </div>
       `
-        } else if (q.type === 'select') {
-            answerHtml = `
+    } else if (q.type === 'select') {
+      answerHtml = `
         <div class="flex flex-col gap-4 w-full mt-6">
           ${q.options.map(opt => `
             <label class="cursor-pointer group">
@@ -109,15 +97,15 @@ export default function renderQuiz() {
           `).join('')}
         </div>
       `
-        } else if (q.type === 'text') {
-            answerHtml = `
+    } else if (q.type === 'text') {
+      answerHtml = `
         <div class="w-full mt-6">
           <textarea id="textResponse" rows="4" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary resize-none" placeholder="Digite aqui sua resposta livre...">${responses[q.key] || ''}</textarea>
         </div>
       `
-        }
+    }
 
-        qContainer.innerHTML = `
+    qContainer.innerHTML = `
       <div class="bg-surface rounded-2xl md:rounded-[2rem] shadow-warm p-6 md:p-12 mb-8 border border-orange-100/50">
         <h1 class="text-2xl md:text-3xl font-bold text-secondary text-center mb-4 leading-tight">${q.text}</h1>
         <p class="text-secondary-light text-center mb-10 text-lg">${q.subtitle}</p>
@@ -134,72 +122,72 @@ export default function renderQuiz() {
         </button>
       </div>
     `
-        main.appendChild(qContainer)
+    main.appendChild(qContainer)
 
-        // Handlers
-        setTimeout(() => {
-            document.getElementById('prev-btn')?.addEventListener('click', () => {
-                saveCurrentResponse()
-                if (currentIndex > 0) currentIndex--
-                renderQuestion()
-            })
-
-            document.getElementById('next-btn')?.addEventListener('click', () => {
-                const hasAnswered = saveCurrentResponse()
-                // Require answer
-                if (!hasAnswered && q.type !== 'text') {
-                    alert("Por favor, selecione uma resposta para continuar.")
-                    return
-                }
-
-                if (currentIndex < total - 1) {
-                    currentIndex++
-                    renderQuestion()
-                } else {
-                    // Finish quiz
-                    localStorage.setItem('supera_responses', JSON.stringify(responses))
-                    navigate('/analysis')
-                }
-            })
-        }, 0)
-    }
-
-    function saveCurrentResponse() {
-        const q = questions[currentIndex]
-        let answered = false
-
-        if (q.type === 'multi') {
-            const inputs = document.querySelectorAll(`input[name="${q.key}"]:checked`)
-            responses[q.key] = Array.from(inputs).map(i => i.value)
-            if (responses[q.key].length > 0) answered = true
-        } else if (q.type === 'text') {
-            const val = document.getElementById('textResponse').value
-            responses[q.key] = val
-            answered = true // Text is optional
-        } else {
-            const input = document.querySelector(`input[name="${q.key}"]:checked`)
-            if (input) {
-                let val = input.value
-                if (q.type === 'scale') val = parseInt(val, 10)
-                else if (q.type === 'yesno') val = (val === 'true')
-                responses[q.key] = val
-                answered = true
-            }
-        }
-        return answered
-    }
-
+    // Handlers
     setTimeout(() => {
-        document.getElementById('sair-btn').addEventListener('click', () => {
-            if (confirm("Deseja cancelar o teste? Suas respostas serão perdidas.")) {
-                localStorage.clear()
-                navigate('/')
-            }
-        })
+      document.getElementById('prev-btn')?.addEventListener('click', () => {
+        saveCurrentResponse()
+        if (currentIndex > 0) currentIndex--
+        renderQuestion()
+      })
+
+      document.getElementById('next-btn')?.addEventListener('click', () => {
+        const hasAnswered = saveCurrentResponse()
+        // Require answer
+        if (!hasAnswered && q.type !== 'text') {
+          alert("Por favor, selecione uma resposta para continuar.")
+          return
+        }
+
+        if (currentIndex < total - 1) {
+          currentIndex++
+          renderQuestion()
+        } else {
+          // Finish quiz
+          localStorage.setItem('supera_responses', JSON.stringify(responses))
+          navigate('/analysis')
+        }
+      })
     }, 0)
+  }
 
-    // Initial render
-    renderQuestion()
+  function saveCurrentResponse() {
+    const q = questions[currentIndex]
+    let answered = false
 
-    return container
+    if (q.type === 'multi') {
+      const inputs = document.querySelectorAll(`input[name="${q.key}"]:checked`)
+      responses[q.key] = Array.from(inputs).map(i => i.value)
+      if (responses[q.key].length > 0) answered = true
+    } else if (q.type === 'text') {
+      const val = document.getElementById('textResponse').value
+      responses[q.key] = val
+      answered = true // Text is optional
+    } else {
+      const input = document.querySelector(`input[name="${q.key}"]:checked`)
+      if (input) {
+        let val = input.value
+        if (q.type === 'scale') val = parseInt(val, 10)
+        else if (q.type === 'yesno') val = (val === 'true')
+        responses[q.key] = val
+        answered = true
+      }
+    }
+    return answered
+  }
+
+  setTimeout(() => {
+    document.getElementById('sair-btn').addEventListener('click', () => {
+      if (confirm("Deseja cancelar o teste? Suas respostas serão perdidas.")) {
+        localStorage.clear()
+        navigate('/')
+      }
+    })
+  }, 0)
+
+  // Initial render
+  renderQuestion()
+
+  return container
 }

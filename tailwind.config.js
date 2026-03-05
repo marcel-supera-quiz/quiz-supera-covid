@@ -19,6 +19,7 @@ export default {
                 "display": ["Fraunces", "Manrope", "serif"],
                 "body": ["Manrope", "sans-serif"],
                 "mono": ["Chivo Mono", "monospace"],
+                "vag": ["VAG Rounded BT", "sans-serif"],
             },
             borderRadius: {
                 "DEFAULT": "0.5rem",

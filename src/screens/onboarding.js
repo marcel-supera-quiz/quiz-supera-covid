@@ -5,7 +5,7 @@ export default function renderOnboarding() {
   const container = document.createElement('div')
   container.className = 'w-full min-h-screen flex flex-col bg-background-light'
 
-  container.appendChild(headerComponent())
+  container.appendChild(headerComponent('light'))
 
   const main = document.createElement('main')
   main.className = 'flex-grow flex items-center justify-center w-full min-h-screen bg-split px-4 py-20 relative overflow-hidden'

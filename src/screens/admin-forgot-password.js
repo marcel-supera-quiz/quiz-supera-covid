@@ -1,16 +1,16 @@
 import { resetPassword } from '../utils/admin-auth.js'
-import logoImg from '../assets/logo.png'
+import logoImg from '../assets/logo-light.png'
 
 export default function renderAdminForgotPassword() {
-    const container = document.createElement('div')
-    container.className = 'admin-login-page'
+  const container = document.createElement('div')
+  container.className = 'admin-login-page'
 
-    container.innerHTML = `
+  container.innerHTML = `
     <div class="admin-login-bg">
       <div class="admin-login-card animate-fade-in-up">
         <!-- Logo -->
-        <div class="admin-login-logo">
-          <img src="${logoImg}" alt="Supera" class="admin-logo-img" />
+        <div class="admin-login-logo flex justify-center">
+          <img src="${logoImg}" alt="Mente Ativa" class="admin-logo-img" />
         </div>
 
         <div class="admin-login-header">
@@ -48,39 +48,39 @@ export default function renderAdminForgotPassword() {
     </div>
   `
 
-    setTimeout(() => {
-        document.getElementById('reset-form').addEventListener('submit', async (e) => {
-            e.preventDefault()
+  setTimeout(() => {
+    document.getElementById('reset-form').addEventListener('submit', async (e) => {
+      e.preventDefault()
 
-            const email = document.getElementById('reset-email').value.trim()
-            const errorEl = document.getElementById('reset-error')
-            const successEl = document.getElementById('reset-success')
-            const submitBtn = document.getElementById('reset-submit-btn')
+      const email = document.getElementById('reset-email').value.trim()
+      const errorEl = document.getElementById('reset-error')
+      const successEl = document.getElementById('reset-success')
+      const submitBtn = document.getElementById('reset-submit-btn')
 
-            errorEl.classList.add('hidden')
-            successEl.classList.add('hidden')
-            submitBtn.disabled = true
-            submitBtn.innerHTML = '<span class="admin-spinner"></span> Enviando...'
+      errorEl.classList.add('hidden')
+      successEl.classList.add('hidden')
+      submitBtn.disabled = true
+      submitBtn.innerHTML = '<span class="admin-spinner"></span> Enviando...'
 
-            const { error } = await resetPassword(email)
+      const { error } = await resetPassword(email)
 
-            if (error) {
-                errorEl.textContent = error.message || 'Erro ao enviar email. Tente novamente.'
-                errorEl.classList.remove('hidden')
-                submitBtn.disabled = false
-                submitBtn.innerHTML = '<span>ENVIAR LINK</span><span class="material-symbols-outlined">send</span>'
-                return
-            }
+      if (error) {
+        errorEl.textContent = error.message || 'Erro ao enviar email. Tente novamente.'
+        errorEl.classList.remove('hidden')
+        submitBtn.disabled = false
+        submitBtn.innerHTML = '<span>ENVIAR LINK</span><span class="material-symbols-outlined">send</span>'
+        return
+      }
 
-            successEl.innerHTML = `
+      successEl.innerHTML = `
         <span class="material-symbols-outlined" style="font-size: 20px; vertical-align: middle;">check_circle</span>
         Email enviado com sucesso! Verifique sua caixa de entrada de <strong>${email}</strong>.
       `
-            successEl.classList.remove('hidden')
-            submitBtn.disabled = true
-            submitBtn.innerHTML = '<span class="material-symbols-outlined">check</span> Enviado'
-        })
-    }, 0)
+      successEl.classList.remove('hidden')
+      submitBtn.disabled = true
+      submitBtn.innerHTML = '<span class="material-symbols-outlined">check</span> Enviado'
+    })
+  }, 0)
 
-    return container
+  return container
 }

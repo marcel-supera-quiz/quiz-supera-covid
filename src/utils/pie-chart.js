@@ -47,7 +47,7 @@ export function renderPieChart(canvas, slices, options = {}) {
 
     // Draw title
     if (title) {
-        ctx.fillStyle = '#591C0B'
+        ctx.fillStyle = '#FFFFFF'
         ctx.font = 'bold 15px Manrope, sans-serif'
         ctx.textAlign = 'center'
         ctx.fillText(title, displayW / 2, 22)
@@ -120,7 +120,7 @@ export function renderPieChart(canvas, slices, options = {}) {
 
             // Label text
             const pct = Math.round((slice.value / total) * 100)
-            ctx.fillStyle = '#591C0B'
+            ctx.fillStyle = '#FFFFFF'
             ctx.font = '500 12px Manrope, sans-serif'
             ctx.textAlign = 'left'
             ctx.textBaseline = 'middle'

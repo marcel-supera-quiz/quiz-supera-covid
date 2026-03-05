@@ -4,7 +4,7 @@ import { navigate } from '../router.js'
 import { renderPieChart, CHART_COLORS } from '../utils/pie-chart.js'
 import { exportTableToCSV } from '../utils/csv-export.js'
 import { questions } from '../logic/questions.js'
-import logoImg from '../assets/logo.png'
+import logoImg from '../assets/logo-light.png'
 
 /** Per-page row count */
 const PAGE_SIZE = 15
@@ -17,8 +17,8 @@ export default function renderAdminDashboard() {
     <!-- Sidebar -->
     <aside class="admin-sidebar" id="admin-sidebar">
       <div class="admin-sidebar-logo">
-        <img src="${logoImg}" alt="Supera" class="admin-sidebar-logo-img" />
-        <span class="admin-sidebar-title">Admin</span>
+        <img src="${logoImg}" alt="Mente Ativa" class="admin-sidebar-logo-img" />
+        <span class="admin-sidebar-title text-white">Admin</span>
       </div>
       <nav class="admin-sidebar-nav">
         <a class="admin-nav-item active">
@@ -357,10 +357,18 @@ function renderCharts() {
 
 // ─── City filter options ─────────────────────────
 function populateCityFilter() {
-  const citySet = new Set()
-  allData.forEach(d => { if (d.cidade_uf) citySet.add(d.cidade_uf) })
+  const cities = [
+    'Americana, SP',
+    'Nova Odessa, SP',
+    'Santa Bárbara d\'Oeste, SP',
+    'Outras Cidades'
+  ]
   const select = document.getElementById('filter-city')
-  Array.from(citySet).sort().forEach(c => {
+  // Clear existing options except the first one
+  while (select.options.length > 1) {
+    select.remove(1)
+  }
+  cities.forEach(c => {
     const opt = document.createElement('option')
     opt.value = c
     opt.textContent = c

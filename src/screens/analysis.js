@@ -1,6 +1,8 @@
 import { navigate } from '../router.js'
 import { calculateIG, getSegmentation, hasNeuroCovid } from '../logic/scoring.js'
 import { supabase } from '../supabase.js'
+import brainIcon from '../assets/favicon.png'
+import logoLight from '../assets/logo-light.png'
 
 export default function renderAnalysis() {
   const container = document.createElement('div')
@@ -11,10 +13,9 @@ export default function renderAnalysis() {
     <!-- Header -->
     <header class="relative z-10 flex items-center justify-center pt-8 pb-4">
       <div class="flex items-center gap-3">
-        <div class="size-8 text-primary">
-          <span class="material-symbols-outlined text-4xl">psychology</span>
+        <div class="h-20 md:h-24">
+          <img src="${logoLight}" alt="Mente Ativa" class="h-full w-auto object-contain">
         </div>
-        <h1 class="text-secondary font-display text-xl font-bold tracking-tight">Supera Vitality</h1>
       </div>
     </header>
 

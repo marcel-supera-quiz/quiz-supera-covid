@@ -1,23 +1,23 @@
 import headerComponent from '../components/header.js'
 import { navigate } from '../router.js'
-import logoImg from '../assets/logo.png'
+import logoImg from '../assets/logo-orange.png'
 
 export default function renderThankYou() {
-    const container = document.createElement('div')
-    container.className = 'w-full min-h-screen flex flex-col bg-background-light'
+  const container = document.createElement('div')
+  container.className = 'w-full min-h-screen flex flex-col bg-background-light'
 
-    container.appendChild(headerComponent())
+  container.appendChild(headerComponent())
 
-    // Retrieve participant data for personalization
-    let participantData = { nome: 'Participante' }
-    try {
-        participantData = JSON.parse(localStorage.getItem('supera_participant') || '{"nome": "Participante"}')
-    } catch (e) { }
+  // Retrieve participant data for personalization
+  let participantData = { nome: 'Participante' }
+  try {
+    participantData = JSON.parse(localStorage.getItem('supera_participant') || '{"nome": "Participante"}')
+  } catch (e) { }
 
-    const main = document.createElement('main')
-    main.className = 'flex-grow flex flex-col items-center justify-start py-8 px-4 md:py-12 mt-16 max-w-[800px] mx-auto w-full'
+  const main = document.createElement('main')
+  main.className = 'flex-grow flex flex-col items-center justify-start py-8 px-4 md:py-12 mt-16 max-w-[800px] mx-auto w-full'
 
-    main.innerHTML = `
+  main.innerHTML = `
     <!-- Success Badge -->
     <div class="flex flex-col items-center gap-6 text-center animate-fade-in-up mb-10">
       <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mb-2">
@@ -63,51 +63,51 @@ export default function renderThankYou() {
 
     <!-- Footer message -->
     <div class="text-center text-secondary-light/60 text-sm pb-8 animate-fade-in-up" style="animation-delay: 0.45s;">
-      <p>Supera — Desenvolvendo mentes mais fortes desde 2006.</p>
+      <p>Mente Ativa — Desenvolvendo mentes mais fortes desde 2006.</p>
     </div>
   `
 
-    container.appendChild(main)
+  container.appendChild(main)
 
-    setTimeout(() => {
-        // E-Book download
-        document.getElementById('btn-download-ebook')?.addEventListener('click', () => {
-            const ebookUrl = localStorage.getItem('supera_ebook_url')
-            if (ebookUrl) {
-                const link = document.createElement('a')
-                link.href = ebookUrl
-                link.download = 'Como_Vencer_o_Brain_Fog_Supera.pdf'
-                link.target = '_blank'
-                link.style.display = 'none'
-                document.body.appendChild(link)
-                link.click()
-                setTimeout(() => document.body.removeChild(link), 100)
-            } else {
-                // Fallback: show message that PDF is not yet configured
-                const statusEl = document.getElementById('ebook-status')
-                statusEl.textContent = '⚠️ O PDF do e-book ainda não foi cadastrado. Em breve estará disponível!'
-                statusEl.classList.remove('hidden')
-            }
-        })
+  setTimeout(() => {
+    // E-Book download
+    document.getElementById('btn-download-ebook')?.addEventListener('click', () => {
+      const ebookUrl = localStorage.getItem('supera_ebook_url')
+      if (ebookUrl) {
+        const link = document.createElement('a')
+        link.href = ebookUrl
+        link.download = 'Como_Vencer_o_Brain_Fog_Supera.pdf'
+        link.target = '_blank'
+        link.style.display = 'none'
+        document.body.appendChild(link)
+        link.click()
+        setTimeout(() => document.body.removeChild(link), 100)
+      } else {
+        // Fallback: show message that PDF is not yet configured
+        const statusEl = document.getElementById('ebook-status')
+        statusEl.textContent = '⚠️ O PDF do e-book ainda não foi cadastrado. Em breve estará disponível!'
+        statusEl.classList.remove('hidden')
+      }
+    })
 
-        // Share with friends via WhatsApp
-        document.getElementById('btn-share-friends')?.addEventListener('click', () => {
-            const shareMessage = `🧠 Fiz a Avaliação Cognitiva Pós-Covid do Supera e descobri como está minha memória comparada à média nacional! Faça a sua também, é gratuito: ${window.location.origin}/`
-            const encodedMsg = encodeURIComponent(shareMessage)
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    // Share with friends via WhatsApp
+    document.getElementById('btn-share-friends')?.addEventListener('click', () => {
+      const shareMessage = `🧠 Fiz a Avaliação Cognitiva Pós-Covid do Supera e descobri como está minha memória comparada à média nacional! Faça a sua também, é gratuito: ${window.location.origin}/`
+      const encodedMsg = encodeURIComponent(shareMessage)
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
-            if (isMobile) {
-                window.open(`whatsapp://send?text=${encodedMsg}`)
-            } else {
-                window.open(`https://web.whatsapp.com/send?text=${encodedMsg}`, '_blank')
-            }
-        })
+      if (isMobile) {
+        window.open(`whatsapp://send?text=${encodedMsg}`)
+      } else {
+        window.open(`https://web.whatsapp.com/send?text=${encodedMsg}`, '_blank')
+      }
+    })
 
-        // Go home
-        document.getElementById('btn-go-home')?.addEventListener('click', () => {
-            navigate('/')
-        })
-    }, 0)
+    // Go home
+    document.getElementById('btn-go-home')?.addEventListener('click', () => {
+      navigate('/')
+    })
+  }, 0)
 
-    return container
+  return container
 }

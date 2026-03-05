@@ -6,6 +6,10 @@
   .animate-subtle-pulse:hover {
     animation: subtlePulse 2s infinite;
   }
+
+  .font-vag {
+    font-family: 'VAG Rounded BT', sans-serif !important;
+  }
 }
 
 html {
@@ -127,7 +131,7 @@ input[type=range]::-webkit-slider-runnable-track {
   --admin-border: rgba(234, 91, 12, 0.12);
   --admin-border-light: rgba(255, 255, 255, 0.06);
   --admin-text: #F5EDE8;
-  --admin-text-secondary: #A89080;
+  --admin-text-secondary: #D1C4BC;
   --admin-primary: #EA5B0C;
   --admin-primary-hover: #F4965B;
   --admin-danger: #D94577;
@@ -196,7 +200,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .admin-logo-img {
-  height: 42px;
+  height: 84px;
   filter: brightness(1.1);
 }
 
@@ -425,14 +429,14 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .admin-sidebar-logo-img {
-  height: 32px;
+  height: 64px;
   filter: brightness(1.1);
 }
 
 .admin-sidebar-title {
   font-weight: 800;
   font-size: 18px;
-  color: var(--admin-primary);
+  color: #FFFFFF;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -451,7 +455,7 @@ input[type=range]::-webkit-slider-runnable-track {
   gap: 12px;
   padding: 12px 16px;
   border-radius: 12px;
-  color: var(--admin-text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition: all 0.2s;
   font-size: 14px;
@@ -461,7 +465,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .admin-nav-item:hover {
   background: var(--admin-surface-2);
-  color: var(--admin-text);
+  color: #FFFFFF;
 }
 
 .admin-nav-item.active {
@@ -475,13 +479,13 @@ input[type=range]::-webkit-slider-runnable-track {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--admin-text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 12px;
 }
 
 .admin-sidebar-footer .material-symbols-outlined {
   font-size: 24px;
-  color: var(--admin-primary);
+  color: #FFFFFF;
 }
 
 .admin-user-email {
