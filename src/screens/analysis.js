@@ -14,7 +14,7 @@ export default function renderAnalysis() {
     <header class="relative z-10 flex items-center justify-center pt-8 pb-4">
       <div class="flex items-center gap-3">
         <div class="h-20 md:h-24">
-          <img src="${logoLight}" alt="Mente Ativa" class="h-full w-auto object-contain">
+          <img src="${logoLight}" alt="Supera | Mente Ativa" class="h-full w-auto object-contain">
         </div>
       </div>
     </header>

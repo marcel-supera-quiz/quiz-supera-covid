@@ -65,11 +65,11 @@ export default function renderRewards() {
         <input type="radio" name="reward" value="squeeze" class="peer sr-only" required>
         <div class="reward-card h-full flex flex-col bg-white rounded-2xl shadow-warm hover:shadow-warm-hover overflow-hidden p-1 border-4 border-transparent peer-checked:border-primary peer-checked:-translate-y-1">
           <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl bg-orange-50">
-            <img src="${squeezeImg}" alt="Squeeze Mente Ativa" class="w-full h-full object-cover">
+            <img src="${squeezeImg}" alt="Squeeze Supera | Mente Ativa" class="w-full h-full object-cover">
           </div>
           <div class="flex flex-col flex-1 p-5 gap-3">
             <div class="flex items-start justify-between">
-              <h3 class="text-xl md:text-2xl font-bold text-secondary font-display">Squeeze Exclusivo Mente Ativa</h3>
+              <h3 class="text-xl md:text-2xl font-bold text-secondary font-display">Squeeze Exclusivo Supera | Mente Ativa</h3>
               <div class="size-6 rounded-full border-2 border-gray-300 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
                 <div class="size-3 rounded-full bg-primary opacity-0 peer-checked:opacity-100"></div>
               </div>

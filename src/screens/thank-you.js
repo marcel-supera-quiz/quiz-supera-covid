@@ -63,7 +63,7 @@ export default function renderThankYou() {
 
     <!-- Footer message -->
     <div class="text-center text-secondary-light/60 text-sm pb-8 animate-fade-in-up" style="animation-delay: 0.45s;">
-      <p>Mente Ativa — Desenvolvendo mentes mais fortes desde 2006.</p>
+      <p>Supera | Mente Ativa — Desenvolvendo mentes mais fortes desde 2006.</p>
     </div>
   `
 

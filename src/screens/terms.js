@@ -18,10 +18,10 @@ export default function renderTerms() {
         <p><strong>Última atualização: Fevereiro de 2026</strong></p>
         
         <h2 class="text-xl font-bold text-secondary mt-6">1. Aceitação dos Termos</h2>
-        <p>Ao utilizar o instrumento do Projeto: Mente Ativa, você concorda com a coleta e uso das suas informações pessoais e resultados cognitivos conforme descrito nesta política. Nossa plataforma preza pela segurança dos seus dados em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+        <p>Ao utilizar o instrumento do Supera | Mente Ativa, você concorda com a coleta e uso das suas informações pessoais e resultados cognitivos conforme descrito nesta política. Nossa plataforma preza pela segurança dos seus dados em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
 
         <h2 class="text-xl font-bold text-secondary mt-6">2. Coleta de Dados</h2>
-        <p>Coletamos as seguintes informações para viabilizar nossa avaliação e a emissão do seu certificado ou agendamento de atendimento na unidade do Projeto: Mente Ativa mais próxima de você: </p>
+        <p>Coletamos as seguintes informações para viabilizar nossa avaliação e a emissão do seu certificado ou agendamento de atendimento na unidade do Supera | Mente Ativa mais próxima de você: </p>
         <ul class="list-disc pl-5">
             <li><strong>Dados Pessoais Iniciais:</strong> Nome completo, Idade, Cidade e Estado.</li>
             <li><strong>Contato:</strong> Número de WhatsApp.</li>
@@ -32,12 +32,12 @@ export default function renderTerms() {
         <p>Utilizamos os dados coletados exclusivamente para:</p>
         <ul class="list-disc pl-5">
             <li>Gerar a sua análise de impacto cognitivo e seu certificado digital de participação de maneira personalizada.</li>
-            <li>Permitir o contato da equipe do Projeto: Mente Ativa com o objetivo de agendar um atendimento com um especialista para uma avaliação gratuita presencial, se você tiver optado por isso.</li>
+            <li>Permitir o contato da equipe do Supera | Mente Ativa com o objetivo de agendar um atendimento com um especialista para uma avaliação gratuita presencial, se você tiver optado por isso.</li>
             <li>Melhorar continuamente a eficácia da nossa ferramenta.</li>
         </ul>
 
         <h2 class="text-xl font-bold text-secondary mt-6">4. Compartilhamento e Segurança</h2>
-        <p>Seus dados são armazenados de forma segura em nossos servidores. Não comercializamos, vendemos ou compartilhamos seus dados com terceiros além dos desenvolvedores e da equipe interna de especialistas do Projeto: Mente Ativa. Todas as transferências de dados são criptografadas (SSL/HTTPS).</p>
+        <p>Seus dados são armazenados de forma segura em nossos servidores. Não comercializamos, vendemos ou compartilhamos seus dados com terceiros além dos desenvolvedores e da equipe interna de especialistas do Supera | Mente Ativa. Todas as transferências de dados são criptografadas (SSL/HTTPS).</p>
 
         <h2 class="text-xl font-bold text-secondary mt-6">5. Seus Direitos (LGPD)</h2>
         <p>Conforme o Artigo 18 da LGPD, garantimos a você o direito de:</p>

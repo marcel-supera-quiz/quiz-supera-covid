@@ -17,7 +17,7 @@ export default function renderAdminDashboard() {
     <!-- Sidebar -->
     <aside class="admin-sidebar" id="admin-sidebar">
       <div class="admin-sidebar-logo">
-        <img src="${logoImg}" alt="Mente Ativa" class="admin-sidebar-logo-img" />
+        <img src="${logoImg}" alt="Supera | Mente Ativa" class="admin-sidebar-logo-img" />
         <span class="admin-sidebar-title text-white">Admin</span>
       </div>
       <nav class="admin-sidebar-nav">

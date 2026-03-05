@@ -10,7 +10,7 @@ export default function renderLanding() {
     <!-- Navigation -->
     <header class="relative z-10 w-full px-6 py-6 md:px-12 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="${logoImg}" alt="Logo Projeto: Mente Ativa" class="h-20 md:h-24 w-auto object-contain">
+        <img src="${logoImg}" alt="Logo Supera | Mente Ativa" class="h-20 md:h-24 w-auto object-contain">
       </div>
     </header>
 
@@ -119,7 +119,7 @@ export default function renderLanding() {
 
     <!-- Simple Footer for Context -->
     <footer class="relative z-10 py-6 text-center text-secondary-light/60 text-xs font-medium">
-      <p>© 2024 Projeto: Mente Ativa. Todos os direitos reservados.</p>
+      <p>© 2024 Supera | Mente Ativa. Todos os direitos reservados.</p>
     </footer>
   `
 

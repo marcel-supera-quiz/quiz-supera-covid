@@ -11,7 +11,7 @@ export default function renderAdminLogin() {
       <div class="admin-login-card animate-fade-in-up">
         <!-- Logo -->
         <div class="admin-login-logo flex justify-center">
-          <img src="${logoImg}" alt="Mente Ativa" class="admin-logo-img" />
+          <img src="${logoImg}" alt="Supera | Mente Ativa" class="admin-logo-img" />
         </div>
 
         <div class="admin-login-header">

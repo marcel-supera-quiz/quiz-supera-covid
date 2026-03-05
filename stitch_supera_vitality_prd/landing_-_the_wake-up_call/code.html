@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Supera Vitality - Avaliação Cognitiva</title>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Fonts: Manrope (Sans) and Fraunces (Serif alternative for Recoleta) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;family=Chivo+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Config -->
-<script id="tailwind-config">
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Supera | Mente Ativa - Avaliação Cognitiva</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Manrope (Sans) and Fraunces (Serif alternative for Recoleta) -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Fraunces:opsz,wght@9..144,300..900&amp;family=Chivo+Mono:wght@700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -26,7 +34,7 @@
                         "secondary-light": "#8C4F3E", // Muted reddish-brown
                         "background-light": "#FFFBF7", // Warm Paper
                         "surface": "#FFFFFF",
-                        "background-dark": "#221610", 
+                        "background-dark": "#221610",
                     },
                     fontFamily: {
                         "display": ["Fraunces", "serif"], // Using Fraunces as a Recoleta alternative
@@ -35,8 +43,8 @@
                     },
                     borderRadius: {
                         "DEFAULT": "0.5rem",
-                        "lg": "1rem", 
-                        "xl": "1.5rem", 
+                        "lg": "1rem",
+                        "xl": "1.5rem",
                         "full": "9999px"
                     },
                     backgroundImage: {
@@ -46,133 +54,167 @@
             },
         }
     </script>
-<style>
+    <style>
         /* Custom pulse animation for the CTA */
         @keyframes subtle-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(234, 91, 12, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(234, 91, 12, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(234, 91, 12, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(234, 91, 12, 0);
+            }
         }
+
         .animate-subtle-pulse:hover {
             animation: subtle-pulse 2s infinite;
         }
-        
+
         /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body class="font-body bg-background-light text-secondary antialiased overflow-x-hidden relative min-h-screen flex flex-col">
-<!-- Subtle Noise Texture Overlay -->
-<div class="absolute inset-0 z-0 pointer-events-none opacity-40 bg-noise mix-blend-multiply"></div>
-<!-- Navigation -->
-<header class="relative z-10 w-full px-6 py-6 md:px-12 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="text-primary">
-<span class="material-symbols-outlined text-4xl">neurology</span>
-</div>
-<div class="flex flex-col">
-<span class="font-display font-bold text-2xl leading-none tracking-tight text-secondary">Supera</span>
-<span class="font-body text-xs font-bold uppercase tracking-widest text-primary">Vitality</span>
-</div>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-secondary-light hover:text-primary font-medium text-sm transition-colors" href="#">Sobre a Pesquisa</a>
-<a class="text-secondary-light hover:text-primary font-medium text-sm transition-colors" href="#">Metodologia</a>
-<button class="text-secondary font-bold text-sm hover:text-primary transition-colors">Login</button>
-</nav>
-</header>
-<!-- Main Content Area -->
-<main class="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-12 py-8 lg:py-0">
-<div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-center h-full">
-<!-- Left Column: Copy & CTA -->
-<div class="flex flex-col items-start gap-8 max-w-xl animate-fade-in-up">
-<div class="space-y-6">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-primary text-xs font-bold uppercase tracking-wider">
-<span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+
+<body
+    class="font-body bg-background-light text-secondary antialiased overflow-x-hidden relative min-h-screen flex flex-col">
+    <!-- Subtle Noise Texture Overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-40 bg-noise mix-blend-multiply"></div>
+    <!-- Navigation -->
+    <header class="relative z-10 w-full px-6 py-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="text-primary">
+                <span class="material-symbols-outlined text-4xl">neurology</span>
+            </div>
+            <h2 class="text-secondary text-xl font-bold leading-tight tracking-[-0.015em]">Supera | Mente Ativa</h2>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-secondary-light hover:text-primary font-medium text-sm transition-colors" href="#">Sobre a
+                Pesquisa</a>
+            <a class="text-secondary-light hover:text-primary font-medium text-sm transition-colors"
+                href="#">Metodologia</a>
+            <button class="text-secondary font-bold text-sm hover:text-primary transition-colors">Login</button>
+        </nav>
+    </header>
+    <!-- Main Content Area -->
+    <main class="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-12 py-8 lg:py-0">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-center h-full">
+            <!-- Left Column: Copy & CTA -->
+            <div class="flex flex-col items-start gap-8 max-w-xl animate-fade-in-up">
+                <div class="space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-primary text-xs font-bold uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-[16px]">health_and_safety</span>
                         Saúde Cognitiva Pós-Pandemia
                     </div>
-<h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-secondary tracking-tight">
-                        A Covid passou. <br/>
-<span class="text-primary italic">As sequelas ficaram?</span>
-</h1>
-<p class="text-lg md:text-xl text-secondary-light leading-relaxed max-w-lg">
-                        Participe da Pesquisa de Impacto Cognitivo e descubra como está sua memória comparada à média nacional.
+                    <h1
+                        class="font-display font-extrabold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-secondary tracking-tight">
+                        A Covid passou. <br />
+                        <span class="text-primary italic">As sequelas ficaram?</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-secondary-light leading-relaxed max-w-lg">
+                        Participe da Pesquisa de Impacto Cognitivo e descubra como está sua memória comparada à média
+                        nacional.
                     </p>
-</div>
-<!-- CTA Section -->
-<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
-<button class="group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold text-base uppercase tracking-wider py-4 px-8 rounded-full shadow-[0_10px_30px_-10px_rgba(234,91,12,0.4)] transition-all duration-300 transform hover:scale-105 animate-subtle-pulse w-full sm:w-auto">
-<span>Iniciar Avaliação</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-<div class="flex items-center gap-2 text-secondary-light text-sm sm:hidden mt-2 justify-center w-full">
-<span class="material-symbols-outlined text-[18px]">timer</span>
-<span>Duração: 3 min</span>
-</div>
-</div>
-<!-- Trust Badges -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-secondary/10 w-full">
-<div class="flex items-center gap-3">
-<div class="bg-orange-50 p-2 rounded-lg text-primary">
-<span class="material-symbols-outlined">psychology</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-secondary text-sm leading-tight">Baseado em neurociência</span>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<div class="bg-orange-50 p-2 rounded-lg text-primary">
-<span class="material-symbols-outlined">bolt</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-secondary text-sm leading-tight">Resultados imediatos</span>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<div class="bg-orange-50 p-2 rounded-lg text-primary">
-<span class="material-symbols-outlined">lock</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-secondary text-sm leading-tight">100% Gratuito e Seguro</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Hero Illustration -->
-<div class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end">
-<!-- Abstract Background Shapes -->
-<div class="absolute inset-0 flex items-center justify-center lg:justify-end opacity-20 pointer-events-none">
-<div class="w-[120%] h-[120%] bg-gradient-to-br from-orange-200 to-transparent rounded-full blur-3xl transform translate-x-10 translate-y-10"></div>
-<div class="w-[80%] h-[80%] bg-gradient-to-tr from-orange-100 to-transparent rounded-full blur-2xl transform -translate-x-10 -translate-y-10"></div>
-</div>
-<!-- Main Image Container -->
-<div class="relative z-10 w-full max-w-lg aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-12px_rgba(89,28,11,0.15)] bg-surface transform rotate-1 hover:rotate-0 transition-transform duration-700 ease-out group">
-<!-- Image Overlay Gradient -->
-<div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent mix-blend-multiply z-10"></div>
-<!-- Hero Image -->
-<img alt="Collage style illustration showing a thoughtful older adult profile silhouette filled with vibrant organic shapes representing cognitive activity and mental clarity" class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd-feBZ9NDyq0xrDvbzmw-dZaK6iDyhPuLKc-_QmXgnalpKO6UWX9VJy5S5PM8knCPzbeS6OT8qYiY1YzkW2AUV7SXY9_AdbGhc4907u70e8jpImt-eVJsxZPh5tqLq8X8kut23risfaQEtXYbsjBOuB6utvQVBSTcacPEas3Jzh_Fi6C5aeNfXfmjM5I2w_1GwLqiabet2wZvJrlj2YxVRZIKKLNgO-M4aYUtuQJ1w8U6KQBJHLIqDhmjVhX1WGu16O_tMERDbpzI"/>
-<!-- Floating UI Card Overlay 1 -->
-<div class="absolute bottom-8 left-8 right-8 z-20 bg-surface/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50 flex items-center gap-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-<div class="bg-green-100 text-green-700 p-2 rounded-full">
-<span class="material-symbols-outlined text-xl">check_circle</span>
-</div>
-<div>
-<p class="text-xs font-bold text-secondary-light uppercase tracking-wide">Status da Memória</p>
-<p class="font-display font-bold text-secondary text-lg">Análise Detalhada</p>
-</div>
-<div class="ml-auto">
-<div class="h-10 w-10 rounded-full border-4 border-green-500 flex items-center justify-center text-[10px] font-bold text-secondary bg-white">
+                </div>
+                <!-- CTA Section -->
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
+                    <button
+                        class="group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold text-base uppercase tracking-wider py-4 px-8 rounded-full shadow-[0_10px_30px_-10px_rgba(234,91,12,0.4)] transition-all duration-300 transform hover:scale-105 animate-subtle-pulse w-full sm:w-auto">
+                        <span>Iniciar Avaliação</span>
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                    <div
+                        class="flex items-center gap-2 text-secondary-light text-sm sm:hidden mt-2 justify-center w-full">
+                        <span class="material-symbols-outlined text-[18px]">timer</span>
+                        <span>Duração: 3 min</span>
+                    </div>
+                </div>
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-secondary/10 w-full">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-50 p-2 rounded-lg text-primary">
+                            <span class="material-symbols-outlined">psychology</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-secondary text-sm leading-tight">Baseado em neurociência</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-50 p-2 rounded-lg text-primary">
+                            <span class="material-symbols-outlined">bolt</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-secondary text-sm leading-tight">Resultados imediatos</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-50 p-2 rounded-lg text-primary">
+                            <span class="material-symbols-outlined">lock</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-secondary text-sm leading-tight">100% Gratuito e Seguro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Hero Illustration -->
+            <div
+                class="relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end">
+                <!-- Abstract Background Shapes -->
+                <div
+                    class="absolute inset-0 flex items-center justify-center lg:justify-end opacity-20 pointer-events-none">
+                    <div
+                        class="w-[120%] h-[120%] bg-gradient-to-br from-orange-200 to-transparent rounded-full blur-3xl transform translate-x-10 translate-y-10">
+                    </div>
+                    <div
+                        class="w-[80%] h-[80%] bg-gradient-to-tr from-orange-100 to-transparent rounded-full blur-2xl transform -translate-x-10 -translate-y-10">
+                    </div>
+                </div>
+                <!-- Main Image Container -->
+                <div
+                    class="relative z-10 w-full max-w-lg aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-12px_rgba(89,28,11,0.15)] bg-surface transform rotate-1 hover:rotate-0 transition-transform duration-700 ease-out group">
+                    <!-- Image Overlay Gradient -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent mix-blend-multiply z-10">
+                    </div>
+                    <!-- Hero Image -->
+                    <img alt="Collage style illustration showing a thoughtful older adult profile silhouette filled with vibrant organic shapes representing cognitive activity and mental clarity"
+                        class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd-feBZ9NDyq0xrDvbzmw-dZaK6iDyhPuLKc-_QmXgnalpKO6UWX9VJy5S5PM8knCPzbeS6OT8qYiY1YzkW2AUV7SXY9_AdbGhc4907u70e8jpImt-eVJsxZPh5tqLq8X8kut23risfaQEtXYbsjBOuB6utvQVBSTcacPEas3Jzh_Fi6C5aeNfXfmjM5I2w_1GwLqiabet2wZvJrlj2YxVRZIKKLNgO-M4aYUtuQJ1w8U6KQBJHLIqDhmjVhX1WGu16O_tMERDbpzI" />
+                    <!-- Floating UI Card Overlay 1 -->
+                    <div
+                        class="absolute bottom-8 left-8 right-8 z-20 bg-surface/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50 flex items-center gap-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="bg-green-100 text-green-700 p-2 rounded-full">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-secondary-light uppercase tracking-wide">Status da Memória
+                            </p>
+                            <p class="font-display font-bold text-secondary text-lg">Análise Detalhada</p>
+                        </div>
+                        <div class="ml-auto">
+                            <div
+                                class="h-10 w-10 rounded-full border-4 border-green-500 flex items-center justify-center text-[10px] font-bold text-secondary bg-white">
                                 98%
                             </div>
-</div>
-</div>
-</div>
-<!-- Decorative Elements -->
-<div class="absolute -z-10 top-20 right-10 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-</div>
-</div>
-</main>
-<!-- Simple Footer for Context -->
-<footer class="relative z-10 py-6 text-center text-secondary-light/60 text-xs font-medium">
-<p>© 2024 Supera Vitality. Todos os direitos reservados.</p>
-</footer>
-</body></html>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -z-10 top-20 right-10 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse">
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Footer for Context -->
+    <footer class="relative z-10 py-6 text-center text-secondary-light/60 text-xs font-medium">
+        <p>© 2024 Supera | Mente Ativa. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
